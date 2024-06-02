@@ -6,11 +6,10 @@
  */
 
 import React from 'react';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider, MD3LightTheme, adaptNavigationTheme } from 'react-native-paper';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import { PaperProvider, MD3LightTheme, adaptNavigationTheme } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import UserProfile from './src/views/pages/UserProfile';
 const BottomTabNavigator = createMaterialBottomTabNavigator();
 const { LightTheme } = adaptNavigationTheme({ reactNavigationLight: DefaultTheme });
@@ -21,10 +20,8 @@ function App(): React.JSX.Element {
     <PaperProvider theme={MD3LightTheme}>
       <SafeAreaProvider>
         <NavigationContainer theme={LightTheme}>
-          <BottomTabNavigator.Navigator initialRouteName="Home">
-            <BottomTabNavigator.Screen name="Home" component={Home} />
+          <BottomTabNavigator.Navigator initialRouteName="UserProfile">
             <BottomTabNavigator.Screen name="UserProfile" component={UserProfile} />
-            <BottomTabNavigator.Screen name="CameraView" component={CameraView} />
           </BottomTabNavigator.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
