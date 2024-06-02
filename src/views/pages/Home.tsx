@@ -1,5 +1,7 @@
-import { FlatList, ImageBackground, StyleSheet, View } from "react-native"
+
+import { Alert, FlatList, ImageBackground, StyleSheet, View } from "react-native"
 import { Avatar, FAB, Text, useTheme } from "react-native-paper";
+import { useNavigation } from '@react-navigation/native';
 
 const images = [
     require('../assets/images/user.png'),
@@ -12,6 +14,7 @@ const images = [
 
 function Home() {
     const theme = useTheme();
+    const navigation = useNavigation();
 
     return <View style={styles.container}>
         <View 
@@ -22,6 +25,14 @@ function Home() {
                     icon="camera"
                     style={styles.fab}
                     color={theme.colors.onBackground}
+                    onPress={()=>{
+                        try {
+                            navigation.navigate("CameraView");
+                        } catch (e) {
+                            console.log(e);
+                            Alert.alert(e.message);
+                        }
+                    }}
                 />
                 <Text style={{fontSize:18,fontWeight:'bold',color:'black',textAlign:'center',marginTop:30}}>Explore</Text>
                 <FAB 
@@ -34,7 +45,6 @@ function Home() {
                 style={{marginTop:30}}
                 horizontal={true}
                 renderItem={({ item }) => {
-                    //console.log(item);
                     return  <View>
                         <View
                             style={styles.avatarBorder}
