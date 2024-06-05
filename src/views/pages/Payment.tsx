@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { Button, RadioButton, Text } from "react-native-paper";
+import { Button, RadioButton, Text, Title } from "react-native-paper";
 import { useToast } from "react-native-toast-notifications";
 
 function Payment(props) {
@@ -24,6 +24,7 @@ function Payment(props) {
     }
 
     return <View>
+        <Title>Payment method</Title>
         <RadioButton.Group onValueChange={handleValueChanged} value={value}>
             <RadioButton.Item label="Free"value="free" />            
             <RadioButton.Item label="Monthly"value="monthly" />
