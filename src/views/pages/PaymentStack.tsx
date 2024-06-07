@@ -13,7 +13,7 @@ function PaymentStack(props) {
         screenOptions={{headerShown: false}}
     >
         <Stack.Screen name='Payment' component={Payment} />
-        <Stack.Screen name='ButtonCustomTabs' component={ButtonCustomTabs} />            
+        <Stack.Screen name='ButtonCustomTabs' component={ButtonCustomTabs} />
     </Stack.Navigator>
 }
 
